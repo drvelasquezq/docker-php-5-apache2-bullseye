@@ -1,0 +1,19 @@
+services:
+  php-5-apache2-bullseye:
+    image: drvelasquezq/php-5-apache2-bullseye:1.0.0
+    container_name: container-php-5-apache2-bullseye
+    volumes:
+      - "./var/www/project-debug:/var/www/project-debug"
+      # para ver logs de apache
+      - "./var/log/apache2/error.log:/var/log/apache2/error.log"
+      - "./var/log/apache2/access.log:/var/log/apache2/access.log"
+      - "./var/log/apache2/other_vhosts_access.log:/var/log/apache2/other_vhosts_access.log"
+      # log de php xdebug
+      - "./var/log/xdebug_remote.log:/var/log/xdebug_remote.log"
+      #arranque
+      - "./scripts/run.sh:/scripts/run.sh"
+      # para que cuando el contenedor se acceda con vscode directamente ya tenga las extensiones instaladas de php
+      - "./root:/root"
+    command: ["sh", "/scripts/run.sh"]
+    ports:
+      - "8080:80"

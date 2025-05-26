@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000, // Coincide con xdebug.remote_port en php.ini
+            "stopOnEntry": false, // Puedes ponerlo en true para que se detenga al inicio del script
+            "pathMappings": {
+                // *** ESTO ES CRÍTICO ***
+                // La clave (izquierda) debe ser la ruta ABSOLUTA de tu proyecto PHP en el servidor web (Debian).
+                // El valor (derecha) debe ser la ruta ABSOLUTA de tu proyecto en tu máquina local donde tienes VS Code.
+                // Si tu proyecto PHP está en /var/www/html/mi_aplicacion_php en Debian,
+                // y tu carpeta de proyecto en VS Code es /home/tu_usuario/proyectos/mi_aplicacion_php, sería:
+                "/var/www/project-debug": "${workspaceFolder}"
+                // Si tu proyecto está directamente en /var/www/html y tu VS Code apunta a esa carpeta:
+                // "/var/www/html": "${workspaceFolder}"
+            }
+        }
+    ]
+}
