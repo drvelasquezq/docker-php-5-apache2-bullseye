@@ -48,6 +48,10 @@ COPY ./etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available
 COPY ./etc/php/5.6/apache2/php.ini /etc/php/5.6/apache2/php.ini
 COPY ./etc/php/5.6/cli/php.ini /etc/php/5.6/cli/php.ini
 
+# composer
+## https://getcomposer.org/doc/00-intro.md#docker-image
+COPY --from=composer/composer:2.2 /usr/bin/composer /usr/bin/composer
+
 EXPOSE 80
 
 WORKDIR /var/www
