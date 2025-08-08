@@ -14,4 +14,4 @@ services:
       - "./root:/root"
     command: ["sh", "/scripts/run.sh"]
     ports:
-      - "8080:80"
+      - "8079:80"
